@@ -19,6 +19,10 @@
                      <x-nav-link href="{{ route('all.category') }}">
                         {{ __('All Categories') }}
                     </x-nav-link>
+
+                     <x-nav-link href="{{ route('all.brand') }}">
+                        {{ __('All Brand') }}
+                    </x-nav-link>
                 </div>
             </div>
 
