@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\{Route, DB};
-use App\Http\Controllers\{ContactController, BrandController, CategoryController, MultiImageController};
+use App\Http\Controllers\{AdminController, ContactController, BrandController, CategoryController, MultiImageController};
 use App\Models\User;
 /*
 |--------------------------------------------------------------------------
@@ -68,3 +68,4 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         return view('admin.index');
     })->name('dashboard');
 });
+Route::get('/user/logout', [AdminController::class, 'logout'])->name('user.logout');
