@@ -46,7 +46,7 @@ class BrandController extends Controller
             // ✅ Process with Intervention v3
             $img = $image->read($brand_image->getRealPath());
 
-            $img->resize(400, 200);
+            $img->resize(300, 200);
             $img->save($last_img);
 
             // ✅ Store relative path for DB
@@ -107,7 +107,7 @@ class BrandController extends Controller
 
             // Intervention Image v3
             $img = $image->read($brand_image->getRealPath());
-            $img->resize(400, 200); // resize
+            $img->resize(300, 200); // resize
             $img->save($save_path);
 
             // Update path for DB

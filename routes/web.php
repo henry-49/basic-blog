@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\MultiImageController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -47,15 +48,18 @@ Route::post('/brand/add',[BrandController::class, 'add_brand'])->name('store.bra
 Route::get('/brand/edit/{id}',[BrandController::class, 'edit_brand'])->name('edit.brand');
 Route::post('/brand/update/{id}',[BrandController::class, 'update_brand'])->name('update.brand');
 Route::get('/brand/delete/{id}',[BrandController::class, 'delete_brand'])->name('delete.brand');
-Route::get('/brand/restore/{id}',[BrandController::class, 'restore_brand'])->name('restore.brand');
-Route::get('/brand/pdelete/{id}',[BrandController::class, 'pdelete_brand'])->name('pdelete.brand');
+
+
+// Multi Image All Route
+Route::get('/multi/image',[MultiImageController::class, 'multi_image'])->name('multi.image');
+Route::post('/multi/add',[MultiImageController::class, 'add_multi_image'])->name('store.multi.image');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         // support diffForHumans() when displaying created_at
         // usage: $user->created_at->diffForHumans()
         //$users = User::all();
-        
+
         // error: Call to a member function diffForHumans() on string
         // usage: Carbon\Carbon::parse($user->created_at)->diffForHumans()
         $users = DB::table('users')->get();
