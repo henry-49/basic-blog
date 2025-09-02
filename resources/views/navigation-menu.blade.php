@@ -17,11 +17,15 @@
                     </x-nav-link>
 
                      <x-nav-link href="{{ route('all.category') }}">
-                        {{ __('All Categories') }}
+                        {{ __('Categories') }}
                     </x-nav-link>
 
                      <x-nav-link href="{{ route('all.brand') }}">
-                        {{ __('All Brand') }}
+                        {{ __('Brand') }}
+                    </x-nav-link>
+
+                     <x-nav-link href="{{ route('multi.image') }}">
+                        {{ __('Multi Image') }}
                     </x-nav-link>
                 </div>
             </div>
