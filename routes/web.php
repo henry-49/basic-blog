@@ -63,7 +63,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
         // error: Call to a member function diffForHumans() on string
         // usage: Carbon\Carbon::parse($user->created_at)->diffForHumans()
-        $users = DB::table('users')->get();
-        return view('dashboard', compact('users'));
+        // $users = DB::table('users')->get();
+
+        return view('admin.index');
     })->name('dashboard');
 });
