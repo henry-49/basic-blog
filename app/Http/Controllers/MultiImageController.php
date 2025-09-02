@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Multipic;
+use App\Models\{Multipic};
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Intervention\Image\ImageManager;
 
 class MultiImageController extends Controller
 {
-    //
+     //  Require authentication
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     function multi_image()
     {
         $images = Multipic::all();

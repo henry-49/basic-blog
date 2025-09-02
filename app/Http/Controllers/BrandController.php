@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Brand;
+use App\Models\{Brand};
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManager;
@@ -11,7 +11,12 @@ use Intervention\Image\ImageManager;
 
 class BrandController extends Controller
 {
-    //
+     //  Require authentication
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     function all_brand() {
         $brands = Brand::latest()->paginate(5);
         return view('admin.brand.index', compact('brands'));
