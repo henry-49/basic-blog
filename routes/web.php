@@ -1,13 +1,8 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\BrandController;
-use App\Http\Controllers\MultiImageController;
+use Illuminate\Support\Facades\{Route, DB};
+use App\Http\Controllers\{ContactController, BrandController, CategoryController, MultiImageController};
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +13,12 @@ use Illuminate\Support\Facades\DB;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+// Email Verification Notice
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
 
 Route::get('/', function () {
     return view('welcome');
