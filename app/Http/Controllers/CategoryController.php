@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
-use Illuminate\Support\Facades\Auth;
+use App\Models\{Category};
+use Illuminate\Support\Facades\{Auth, DB};
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
-    //
+    //  Require authentication
+    function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     function all_category(){
         $categories = Category::latest()->paginate(5);
         $trashed_categories = Category::onlyTrashed()->latest()->paginate(5);
