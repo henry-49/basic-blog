@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\{Route, DB};
-use App\Http\Controllers\{AdminController, ContactController, BrandController, CategoryController, MultiImageController};
+use App\Http\Controllers\{AdminController, 
+    ContactController, 
+    BrandController, 
+    CategoryController,
+    HomeController, 
+    MultiImageController};
 use App\Models\User;
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +60,18 @@ Route::get('/brand/delete/{id}',[BrandController::class, 'delete_brand'])->name(
 // Multi Image All Route
 Route::get('/multi/image',[MultiImageController::class, 'multi_image'])->name('multi.image');
 Route::post('/multi/add',[MultiImageController::class, 'add_multi_image'])->name('store.multi.image');
+
+
+
+// Admin All Route
+Route::get('/home/slider',[HomeController::class, 'home_slider'])->name('home.slider');
+Route::get('/create/slider',[HomeController::class, 'create_slider'])->name('create.slider');
+Route::post('/add/slider',[HomeController::class, 'add_slider'])->name('store.slider');
+Route::get('/slider/edit/{id}',[HomeController::class, 'edit_slider'])->name('edit.slider');
+Route::post('/slider/update/{id}',[HomeController::class, 'update_slider'])->name('update.slider');
+Route::get('/slider/delete/{id}',[HomeController::class, 'delete_slider'])->name('delete.slider');
+
+
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', function () {
