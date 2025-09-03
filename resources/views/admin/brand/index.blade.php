@@ -39,7 +39,7 @@
                                     <tr>
                                         <th scope="row">{{ $brands->firstItem() + $loop->index }}</th>
                                         <td>{{ $brand->brand_name }}</td>
-                                        <td><img src="{{ asset($brand->brand_image) }}" alt="{{ $brand->brand_name }}" width="100" /></td>
+                                        <td><img src="{{ asset($brand->brand_image) }}" alt="{{ $brand->brand_name }}" style="height: 40px; width:70px" /></td>
                                         <td>
                                             @if($brand->created_at == NULL)
                                             <span class="text-danger">No Date Set </span>
@@ -99,7 +99,7 @@
 
             </div>
         </div>
-{{-- end of all categories --}}
+{{-- end of all brands --}}
 
 
     </div>
