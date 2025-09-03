@@ -25,6 +25,7 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
 				</div>
+                
 				<div class="form-group">
 					<label for="image" class="form-label">Slider Image</label>
 					<input type="file" name="image" class="form-control-file" id="image">
