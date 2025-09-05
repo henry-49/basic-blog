@@ -157,4 +157,5 @@ class HomeController extends Controller
         return redirect()->back()->with('error', 'Slider Not Found');
     }
     
+
 }

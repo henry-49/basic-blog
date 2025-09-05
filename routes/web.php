@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\{Route, DB};
-use App\Http\Controllers\{AdminController, 
+use App\Http\Controllers\{AboutController, 
+    AdminController, 
     ContactController, 
     BrandController, 
     CategoryController,
@@ -71,6 +72,14 @@ Route::get('/slider/edit/{id}',[HomeController::class, 'edit_slider'])->name('ed
 Route::post('/slider/update/{id}',[HomeController::class, 'update_slider'])->name('update.slider');
 Route::get('/slider/delete/{id}',[HomeController::class, 'delete_slider'])->name('delete.slider');
 
+
+// All About Route
+Route::get('/home/about',[AboutController::class, 'home_about'])->name('home.about');
+Route::get('/create/about',[AboutController::class, 'create_about'])->name('create.about');
+Route::post('/add/about',[AboutController::class, 'add_about'])->name('store.about');
+Route::get('/about/edit/{id}',[AboutController::class, 'edit_about'])->name('edit.about');
+Route::post('/about/update/{id}',[AboutController::class, 'update_about'])->name('update.about');
+Route::get('/about/delete/{id}',[AboutController::class, 'delete_about'])->name('delete.about');
 
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
