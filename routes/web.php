@@ -8,7 +8,7 @@ use App\Http\Controllers\{AboutController,
     CategoryController,
     HomeController, 
     MultiImageController};
-use App\Models\User;
+use App\Models\{User, Multipic};
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,8 +28,9 @@ Route::get('/email/verify', function () {
 
 Route::get('/', function () {
     $brands = DB::table('brands')->get();
-    $abouts = DB::table('abouts')->first();
-    return view('home', compact('brands', 'abouts'));
+    $about = DB::table('abouts')->first();
+    $portfolio_images = Multipic::all();
+    return view('home', compact('brands', 'about', 'portfolio_images'));
 });
 
 Route::get('home', function () {

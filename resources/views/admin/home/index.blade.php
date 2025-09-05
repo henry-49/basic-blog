@@ -2,9 +2,6 @@
 
 @section('admin')
 
-
-
-
     <div class="py-12">
         <div class="container mb-4">
             <div class="row">
@@ -66,8 +63,6 @@
                       </div>
                     </div>
                 </div>
-
-                
 
             </div>
         </div>
