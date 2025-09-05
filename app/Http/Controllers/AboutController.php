@@ -57,7 +57,7 @@ class AboutController extends Controller
     
     function update_about(Request $request, $id){
         $validated = $request->validate([
-            'title'   => 'required|unique:abouts|min:4',
+            'title'   => 'required|min:4',
         ],
         [
             'title.required' => 'Please Input Title',
