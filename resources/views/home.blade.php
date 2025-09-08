@@ -2,6 +2,9 @@
 
 @section('home_content')
 
+  <!-- ======= Hero Section ======= -->
+    @include('layouts.body.slider')
+
 <!-- ======= About Us Section ======= -->
     <section id="about-us" class="about-us">
       <div class="container" data-aos="fade-up">

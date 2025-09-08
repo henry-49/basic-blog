@@ -84,6 +84,10 @@ Route::post('/about/update/{id}',[AboutController::class, 'update_about'])->name
 Route::get('/about/delete/{id}',[AboutController::class, 'delete_about'])->name('delete.about');
 
 
+// Portfolio Route
+Route::get('/portfolio',[HomeController::class, 'portfolio'])->name('portfolio.page');
+
+
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         // support diffForHumans() when displaying created_at
