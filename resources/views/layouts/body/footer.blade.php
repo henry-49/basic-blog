@@ -53,14 +53,7 @@
 
       <div class="mr-md-auto text-center text-md-left">
         <div class="copyright">
-          &copy; Copyright <strong><span>Tech Guru Consult</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/company-free-html-bootstrap-template/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          Tech Guru Consult &copy; <strong><span id="copy-year">2025</span></strong> TechGuruConsult, GmbH
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">
@@ -70,6 +63,12 @@
         <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
+
+       <script>
+            var d = new Date();
+            var year = d.getFullYear();
+            document.getElementById("copy-year").innerHTML = year;
+        </script>
     </div>
   </footer>
   <!-- End Footer -->

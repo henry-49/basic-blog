@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Slider};
+use App\Models\{Slider, Multipic};
 use Illuminate\Support\Carbon;
 use Intervention\Image\ImageManager;
-
 class HomeController extends Controller
 {
     
@@ -156,5 +155,12 @@ class HomeController extends Controller
 
         return redirect()->back()->with('error', 'Slider Not Found');
     }
+
     
+    function portfolio(){
+        $portfolio_pics = Multipic::all();
+        return view('layouts.pages.portfolio', compact('portfolio_pics'));
+    }
+    
+
 }

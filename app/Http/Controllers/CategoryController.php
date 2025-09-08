@@ -76,7 +76,7 @@ class CategoryController extends Controller
         // $update = Category::find($id)->update([
         //     'category_name' => $request->category_name,
         //     'user_id' => Auth::user()->id,
-        //     'created_at' => Carbon::now()
+        //     'updated_at' => Carbon::now()
         // ]);
 
         // $category = Category::find($id);
@@ -87,7 +87,7 @@ class CategoryController extends Controller
         $data = array();
         $data['category_name'] = $request->category_name;
         $data['user_id'] = Auth::user()->id;
-        $data['created_at'] = Carbon::now();
+        $data['updated_at'] = Carbon::now();
         DB::table('categories')->where('id', $id)->update($data);
         
         // Category::where('id', $id)->update($data);
