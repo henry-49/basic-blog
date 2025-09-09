@@ -30,7 +30,7 @@
           <li><a href="{{ route('portfolio.page') }}">Portfolio</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="{{ route('contact.page') }}">Contact</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->

@@ -88,6 +88,19 @@ Route::get('/about/delete/{id}',[AboutController::class, 'delete_about'])->name(
 Route::get('/portfolio',[HomeController::class, 'portfolio'])->name('portfolio.page');
 
 
+// Admin Contact Page Route
+Route::get('/admin/contact',[ContactController::class, 'admin_contact'])->name('admin.contact');
+Route::get('/create/contact',[ContactController::class, 'create_contact'])->name('create.contact');
+Route::post('/add/contact',[ContactController::class, 'add_contact'])->name('store.contact');
+Route::get('/contact/edit/{id}',[ContactController::class, 'edit_contact'])->name('edit.contact');
+Route::post('/contact/update/{id}',[ContactController::class, 'update_contact'])->name('update.contact');
+Route::get('/contact/delete/{id}',[ContactController::class, 'delete_contact'])->name('delete.contact');
+
+
+// Home Contact Page Route
+Route::get('/contact',[ContactController::class, 'contact'])->name('contact.page');
+
+
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         // support diffForHumans() when displaying created_at
