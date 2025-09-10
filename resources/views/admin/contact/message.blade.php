@@ -5,9 +5,8 @@
     <div class="py-12">
         <div class="container mb-4">
             <div class="row">
-                <h4> Contact Page</h4>
-                <a href="{{ route('create.contact')}}" class="btn btn-primary ml-2 mb-2">Add Contact</a> <br>
-
+                <h4 class="mb-2"> Admin Message</h4>
+               
                 <div class="col-md-12">
                     <div class="card">
                         @if(session('success'))
@@ -17,7 +16,7 @@
                             </div>
                         @endif
                         <div class="card-header">
-                            <h4 class="card-title">All Contact Data</h4>
+                            <h4 class="card-title">All Message</h4>
                         </div>
                         <div class="card-body">
 
@@ -25,27 +24,28 @@
                                 <thead>
                                     <tr>
                                     <th scope="col" width="5%">SL No</th>
-                                    <th scope="col" width="30%">Contact Address</th>
-                                    <th scope="col" width="20%">Contact Email</th>
-                                    <th scope="col" width="15%">Contact Phone</th>
-                                    <th scope="col" width="15%">Action</th>
+                                    <th scope="col" width="10%">Name</th>
+                                    <th scope="col" width="15%">Email</th>
+                                    <th scope="col" width="15%">Subject</th>
+                                    <th scope="col" width="30%">Message</th>
+                                    <th scope="col" width="10%">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @if($contacts->count() > 0)
+                                @if($messages->count() > 0)
                                         @php($i = 1)
-                                    @foreach ($contacts as $contact)
+                                    @foreach ($messages as $message)
                                         <tr>
                                             <th scope="row">{{ $i++ }}</th>
-                                            <td>{{ $contact->address }}</td>
-                                            <td>{{ $contact->email }}</td>
-                                            <td>{{ $contact->phone }}</td>
+                                            <td>{{ $message->name }}</td>
+                                            <td>{{ $message->email }}</td>
+                                            <td>{{ $message->subject }}</td>
+                                            <td>{{ $message->message }}</td>
                                             
                                             
                                             <td>
-                                                <a href="{{ route('edit.contact', $contact->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                                <a href="{{ route('delete.contact', $contact->id) }}"
-                                                    onclick="return confirm('Are you sure you want to delete this contact?');"
+                                                <a href="{{ route('delete.message', $message->id) }}"
+                                                    onclick="return confirm('Are you sure you want to delete this message?');"
                                                     class="btn btn-danger btn-sm">Delete</a>
                                             </td>
                                         </tr>
@@ -53,7 +53,7 @@
                                 @else
                                 <tr>
                                     <td colspan="5" class="text-center">
-                                        <strong>No Contact Data Found</strong>
+                                        <strong>No Message Found</strong>
                                     </td>
                                 </tr>
                                 @endif
