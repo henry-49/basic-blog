@@ -141,7 +141,7 @@
 
          @foreach ($portfolio_images as $img)
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <img src="{{ asset( $img->image ) }}" class="img-fluid" alt="">
+                <img src="{{ asset( $img->image ) }}" class="img-fluid" alt="" loading="lazy">
                 <div class="portfolio-info">
                     <h4>Portfolio</h4>
                     <p>Portfolio</p>
