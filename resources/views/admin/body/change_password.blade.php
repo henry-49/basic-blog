@@ -17,7 +17,7 @@
 			<form action="{{ route('update.password') }}" method="POST" class="form-pill">
                 @csrf
 				<div class="form-group">
-					<label for="old_password" class="form-label">Old Password</label>
+					<label for="old_password" class="form-label">Current Password</label>
 					<input type="password" class="form-control" id="current_password" name="old_password" placeholder="Enter Old Password">
                     @error('old_password')
                         <span class="text-danger">{{ $message }}</span>
@@ -47,8 +47,6 @@
 		</div>
 	</div>
 
-	
-	
 </div>
 
 @endsection

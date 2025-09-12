@@ -124,3 +124,8 @@ Route::get('/user/logout', [AdminController::class, 'logout'])->name('user.logou
 // Change Password and User Profile Update Route
 Route::get('/user/password',[ChangePasswordController::class, 'change_password'])->name('change.password');
 Route::post('/user/update',[ChangePasswordController::class, 'update_password'])->name('update.password');
+
+
+// User Profile
+Route::get('/user/profile',[ChangePasswordController::class, 'profile_update'])->name('profile.update');
+Route::post('/user/profile/update',[ChangePasswordController::class, 'user_profile_update'])->name('update.user.profile');

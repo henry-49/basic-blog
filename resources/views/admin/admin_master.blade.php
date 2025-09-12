@@ -89,7 +89,7 @@
                             <!-- Github Link Button -->
                             <li class="github-link mr-3">
                                 <a class="btn btn-outline-secondary btn-sm"
-                                    href="https://github.com/tafcoder/sleek-dashboard" target="_blank">
+                                    href="https://github.com/henry-49/basic-blog" target="_blank">
                                     <span class="d-none d-md-inline-block mr-2">Source Code</span>
                                     <i class="mdi mdi-github-circle"></i>
                                 </a>
@@ -160,12 +160,12 @@
                                     </li>
 
                                     <li>
-                                        <a href="profile.html">
+                                        <a href="{{ route('profile.update') }}">
                                             <i class="mdi mdi-account"></i> My Profile
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('change.password')}}">
+                                        <a href="{{ route('change.password') }}">
                                             <i class="mdi mdi-email"></i> Change Password
                                         </a>
                                     </li>

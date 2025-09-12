@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{Auth,Hash};
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Carbon;
 
 class ChangePasswordController extends Controller
@@ -41,6 +42,33 @@ class ChangePasswordController extends Controller
             return redirect()->route('login')->with('success', 'Password Changed Successfuly');
         } else{
             return redirect()->back()->with('error', 'Current Password Is Invalid');
+        }
+    }
+
+
+    function profile_update()
+    {
+
+        if(Auth::user()){
+            $user = User::find(Auth::user()->id);
+            if($user){
+                return view('admin.body.update_profile', compact('user'));
+            }
+        }
+        
+    }
+
+    function user_profile_update(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+         if($user){
+                $user->name = $request->name;
+                $user->email = $request->email;
+
+                $user->save();
+                return redirect()->back()->with('success', 'User Profile Updated Successfuly');
+            }else{
+            return redirect()->back()->with('error', 'Something Went Wrong');
         }
     }
     
