@@ -25,25 +25,30 @@ class ContactController extends Controller
     }
 
     function add_contact(Request $request){
-    $validated = $request->validate([
-        'phone'   => 'required|unique:contacts|min:4',
-        'email'  => 'required|unique:contacts',
-        'address'  => 'required',
-    ],
-    [
-        'address.required' => 'Please Input Address',
-        'email.required' => 'Please Input Email',
-    ]);
-    
-    Contact::insert([
-        'phone' => $request->phone,
-        'email' => $request->email,
-        'address' => $request->address,
-        'created_at' => Carbon::now()
-    ]);
+        $validated = $request->validate([
+            'phone'   => 'required|unique:contacts|min:4',
+            'email'  => 'required|unique:contacts',
+            'address'  => 'required',
+        ],
+        [
+            'address.required' => 'Please Input Address',
+            'email.required' => 'Please Input Email',
+        ]);
+        
+        Contact::insert([
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'address' => $request->address,
+            'created_at' => Carbon::now()
+        ]);
 
+     // toastr
+        $notification_success = array(
+                'message' => 'Contact Inserted Successfully',
+                'alert-type' => 'success'
+            );
 
-    return Redirect()->route('admin.contact')->with('success', 'Contact Inserted Successfully');
+        return Redirect()->route('admin.contact')->with($notification_success);
     }
 
     function edit_contact($id){
@@ -71,8 +76,14 @@ class ContactController extends Controller
             'updated_at' => Carbon::now()
         ]);
       
+         // toastr
+        $notification_info = array(
+                'message' => 'Contact Updated Successfully',
+                'alert-type' => 'info',
+                
+            );
 
-        return Redirect()->route('admin.contact')->with('success', 'Contact Updated Successfully');
+        return Redirect()->route('admin.contact')->with($notification_info);
     }
 
 
@@ -104,7 +115,14 @@ class ContactController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        return Redirect()->route('contact.page')->with('success', 'Message Sent Successfully');
+         // toastr
+        $notification_success = array(
+                'message' => 'Message Sent Successfully',
+                'alert-type' => 'success',
+                
+            );
+
+        return Redirect()->route('contact.page')->with($notification_success);
     }
 
     function admin_message()
@@ -120,7 +138,14 @@ class ContactController extends Controller
         // Delete the message from the database
         $deletemessage->delete();
 
-        return redirect()->back()->with('success', 'Message Deleted Successfully');
+          // toastr
+        $notification_warning = array(
+                'message' => 'Message Deleted Successfully',
+                'alert-type' => 'warning',
+                
+            );
+            
+        return redirect()->back()->with($notification_warning);
     }
 
     function delete_about($id) {
@@ -130,7 +155,14 @@ class ContactController extends Controller
         // Delete the contact from the database
         $homecontact->delete();
 
-        return redirect()->back()->with('success', 'Home Contact Deleted Successfully');
+             // toastr
+        $notification_warning = array(
+                'message' => 'Home Contact Deleted Successfully',
+                'alert-type' => 'warning',
+                
+            );
+
+        return redirect()->back()->with($notification_warning);
     }
 
 }
