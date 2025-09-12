@@ -65,7 +65,14 @@ class BrandController extends Controller
             ]);
         }
 
-        return redirect()->back()->with('success', 'Brand Inserted Successfully');
+        // toastr
+        $notification = array(
+            'message' => 'Brand Inserted Successfully',
+            'alert-type' => 'success'
+            
+        );
+
+        return redirect()->back()->with($notification);
     }
 
     function edit_brand($id) {
@@ -126,7 +133,14 @@ class BrandController extends Controller
                 'updated_at'  => Carbon::now(),
             ]);
 
-        return redirect()->back()->with('success', 'Brand Updated Successfully');
+               // toastr
+            $notification_info = array(
+                'message' => 'Brand Updated Successfully',
+                'alert-type' => 'info'
+                
+            );
+            
+        return redirect()->back()->with($notification_info);
 
     }
 
@@ -134,6 +148,17 @@ class BrandController extends Controller
     function delete_brand($id) {
         // Find the brand
         $brand = Brand::find($id);
+
+           // toastr
+            $notification_success = array(
+                'message' => 'Brand Deleted Successfully',
+                'alert-type' => 'success'
+            );
+
+            $notification_error= array(
+                'message' => 'Brand Not Found',
+                'alert-type' => 'error' 
+            );
 
         if ($brand) {
             // Delete the image file
@@ -144,9 +169,9 @@ class BrandController extends Controller
             // Delete the brand from the database
             $brand->delete();
 
-            return redirect()->back()->with('success', 'Brand Deleted Successfully');
+            return redirect()->back()->with($notification_success);
         }
 
-        return redirect()->back()->with('error', 'Brand Not Found');
+        return redirect()->back()->with($notification_error);
     }
 }

@@ -29,6 +29,9 @@
     <!-- FAVICON -->
     <link href="{{ asset('backend/assets/img/favicon.png') }}" rel="shortcut icon" />
 
+    <!-- TOASTR  -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
+
     <!--
     HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
   -->
@@ -234,7 +237,32 @@
     <script src="{{ asset('backend/assets/js/date-range.js') }}"></script>
     <script src="{{ asset('backend/assets/js/map.js') }}"></script>
     <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'showEasing', 'info')}}"
+
+            switch(type){
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                break;
+
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                break;
+
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                break;
+
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                break;
+            }
+
+        @endif 
+    </script>
 </body>
 
 </html>
